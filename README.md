@@ -3,7 +3,7 @@
 A full-stack AI-powered interview preparation platform built with **Node.js**, **Express**, **MongoDB**, and **React (Vite)**. Designed for users to generate personalized interview questions and answers, take notes, and review topics with AI-generated explanations in a modern, responsive UI.
 
 🚀 **Live Demo**:
-- Backend: <!-- Add your backend Render URL here -->
+- Backend: https://interview-prep-ai-ieb1.onrender.com
 - Frontend: <!-- Add your frontend Render URL here -->
 
 ---
@@ -135,7 +135,7 @@ cd frontend/interview-prep-ai
 npm install
 # Create a .env file and add:
 # VITE_API_BASE_URL=http://localhost:8000
-# For deployed usage, set VITE_API_BASE_URL=https://your-backend-url in Render
+# For deployed usage, set VITE_API_BASE_URL=https://interview-prep-ai-ieb1.onrender.com in Render
 # VITE_FRONTEND_URL=http://localhost:5173
 # For deployed usage, set VITE_FRONTEND_URL=https://your-frontend-url in Render
 npm run dev
@@ -171,9 +171,12 @@ CLIENT_URL=http://localhost:5173,http://localhost:5174,https://your-frontend-url
 ### Frontend `.env`
 ```
 VITE_API_BASE_URL=http://localhost:8000
-# For deployed usage, set VITE_API_BASE_URL=https://your-backend-url in Render
+# For deployed usage, set VITE_API_BASE_URL=https://interview-prep-ai-ieb1.onrender.com in Render
 VITE_FRONTEND_URL=http://localhost:5173
 # For deployed usage, set VITE_FRONTEND_URL=https://your-frontend-url in Render
+VITE_API_URL=https://interview-prep-ai-ieb1.onrender.com
+# For local development, uncomment the next line:
+# VITE_API_URL=http://localhost:5000
 ```
 
 ---

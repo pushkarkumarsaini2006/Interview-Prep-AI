@@ -13,7 +13,7 @@ const { generateInterviewQuestions, generateConceptExplanation } = require("./co
 const app = express();
 
 const allowedOrigins = [
-  "https://interview-prep-ai-1-femj.onrender.com",
+  "https://interview-prep-ai-ieb1.onrender.com",
   "http://localhost:5173"
 ];
 
@@ -51,7 +51,7 @@ app.use("/api/ai/generate-explanation", protect, generateConceptExplanation);
 app.use("/uploads", (req, res, next) => {
   const origin = req.headers.origin;
   if ([
-    "https://interview-prep-ai-1-femj.onrender.com",
+    "https://interview-prep-ai-ieb1.onrender.com",
     "http://localhost:5173"
   ].includes(origin)) {
     res.header("Access-Control-Allow-Origin", origin);
