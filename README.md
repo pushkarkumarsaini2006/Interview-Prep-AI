@@ -4,7 +4,7 @@ A full-stack AI-powered interview preparation platform built with **Node.js**, *
 
 🚀 **Live Demo**:
 - Backend: https://interview-prep-ai-ieb1.onrender.com
-- Frontend: <!-- Add your frontend Render URL here -->
+- Frontend: https://interview-prep-ai-1-428b.onrender.com
 
 ---
 
@@ -122,7 +122,7 @@ npm install
 # Create a .env file and add:
 # MONGODB_URI=your_mongodb_uri
 # JWT_SECRET=your_jwt_secret
-# CLIENT_URL=http://localhost:5173,http://localhost:5174,https://your-frontend-url
+# CLIENT_URL=http://localhost:5173,http://localhost:5174,https://interview-prep-ai-1-428b.onrender.com
 npm start
 ```
 
@@ -137,7 +137,7 @@ npm install
 # VITE_API_BASE_URL=http://localhost:8000
 # For deployed usage, set VITE_API_BASE_URL=https://interview-prep-ai-ieb1.onrender.com in Render
 # VITE_FRONTEND_URL=http://localhost:5173
-# For deployed usage, set VITE_FRONTEND_URL=https://your-frontend-url in Render
+# For deployed usage, set VITE_FRONTEND_URL=https://interview-prep-ai-1-428b.onrender.com in Render
 npm run dev
 ```
 
@@ -165,7 +165,7 @@ npm run dev
 ```
 MONGODB_URI=your_mongodb_uri
 JWT_SECRET=your_jwt_secret
-CLIENT_URL=http://localhost:5173,http://localhost:5174,https://your-frontend-url
+CLIENT_URL=http://localhost:5173,http://localhost:5174,https://interview-prep-ai-1-428b.onrender.com
 ```
 
 ### Frontend `.env`
@@ -173,7 +173,7 @@ CLIENT_URL=http://localhost:5173,http://localhost:5174,https://your-frontend-url
 VITE_API_BASE_URL=http://localhost:8000
 # For deployed usage, set VITE_API_BASE_URL=https://interview-prep-ai-ieb1.onrender.com in Render
 VITE_FRONTEND_URL=http://localhost:5173
-# For deployed usage, set VITE_FRONTEND_URL=https://your-frontend-url in Render
+# For deployed usage, set VITE_FRONTEND_URL=https://interview-prep-ai-1-428b.onrender.com in Render
 VITE_API_URL=https://interview-prep-ai-ieb1.onrender.com
 # For local development, uncomment the next line:
 # VITE_API_URL=http://localhost:5000
