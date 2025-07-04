@@ -30,6 +30,7 @@ const SignUp = ({ setCurrentPage }) => {
   // Handle SignUp Form Submit
   const handleSignUp = async (e) => {
     e.preventDefault();
+    e.stopPropagation();
 
      let profileImageUrl = "";
 
