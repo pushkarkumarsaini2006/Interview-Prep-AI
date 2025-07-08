@@ -2,6 +2,10 @@
 .env
 .env.*
 
+# Ignore backend and frontend environment files
+backend/.env
+frontend/interview-prep-ai/.env
+
 # Ignore npm logs
 npm-debug.log*
 yarn-debug.log*
