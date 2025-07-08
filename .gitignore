@@ -1,0 +1,76 @@
+# Ignore environment variable files
+.env
+.env.*
+
+# Ignore npm logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore database files
+*.sqlite
+*.db
+*.db3
+*.sdb
+*.sqlite3
+
+# Ignore uploads and sensitive data
+backend/uploads/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore build output
+frontend/interview-prep-ai/dist/
+
+# Ignore secrets and credentials
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.cert
+*.csr
+*.der
+*.jks
+*.keystore
+*.p8
+*.p7b
+*.p7c
+*.asc
+*.gpg
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+
+# Ignore node_modules
+node_modules/
+
+# Ignore coverage reports
+coverage/
+
+# Ignore IDE files
+.idea/
+*.swp
+*.swo
+
+# Ignore backup files
+*~
+*.bak
+*.tmp
+
+# Ignore test output
+junit.xml
+
+# Ignore package lock files (optional, if you use yarn or pnpm)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
