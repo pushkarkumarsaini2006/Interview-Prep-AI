@@ -8,6 +8,7 @@ const axiosInstance = axios.create({
     "Content-Type": "application/json",
     Accept: "application/json",
   },
+  withCredentials: true,
 });
 
 // Request Interceptor
@@ -37,9 +38,13 @@ axiosInstance.interceptors.response.use(
         window.location.href = "/";
       } else if (error.response.status === 500) {
         console.error("Server error. Please try again later.");
+      } else if (error.response.status === 403) {
+        console.error("CORS error or forbidden request.");
       }
     } else if (error.code === "ECONNABORTED") {
       console.error("Request timeout. Please try again.");
+    } else if (error.message === "Network Error") {
+      console.error("Network error. Check your connection and server status.");
     }
     return Promise.reject(error);
   }

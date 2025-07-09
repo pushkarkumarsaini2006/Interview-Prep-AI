@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+const fs = require("fs");
 const connectDB = require("./config/db");
 
 const authRoutes = require('./routes/authRoutes')
@@ -11,6 +12,12 @@ const { protect } = require("./middlewares/authMiddleware");
 const { generateInterviewQuestions, generateConceptExplanation } = require("./controllers/aiController");
 
 const app = express();
+
+// Ensure uploads directory exists
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
 
 const allowedOrigins = [
   "https://interview-prep-ai-ieb1.onrender.com",
@@ -30,15 +37,37 @@ app.use(
       }
     },
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+    optionsSuccessStatus: 200
   })
 );
+
+// Handle preflight requests
+app.options('*', cors());
 
 connectDB()
 
 // Middleware
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Additional CORS handling for specific routes
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+  
+  next();
+});
 
 // Routes
 app.use("/api/auth", authRoutes);
@@ -61,6 +90,20 @@ app.use("/uploads", (req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET,OPTIONS");
   next();
 }, express.static(path.join(__dirname, "uploads")));
+
+// Global error handler
+app.use((error, req, res, next) => {
+  console.error('Error:', error);
+  if (error.message === "Not allowed by CORS") {
+    return res.status(403).json({ message: "CORS Error: Origin not allowed" });
+  }
+  res.status(500).json({ message: "Server Error", error: error.message });
+});
+
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ message: "Route not found" });
+});
 
 // Start Server
 const PORT = process.env.PORT || 5000;
