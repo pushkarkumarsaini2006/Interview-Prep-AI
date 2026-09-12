@@ -23,6 +23,10 @@ services:
     rootDir: frontend/interview-prep-ai
     buildCommand: npm install && npm run build
     staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
     envVars:
       - key: VITE_API_URL
         value: https://interview-prep-ai-api.onrender.com
